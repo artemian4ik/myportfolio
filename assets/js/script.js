@@ -1,5 +1,7 @@
 
 (() => {
+	window.addEventListener('wheel', preventDefault, { passive: false });
+
 	window.audiobutton.addEventListener('click', () => {
 		if (window.audio.paused) {
 			window.audio.play();
@@ -128,4 +130,8 @@ function slowScrollTo(container, target) {
 	}
   
 	requestAnimationFrame(animation);
-  }
+}
+
+function preventDefault(event) {
+	event.preventDefault();
+}
