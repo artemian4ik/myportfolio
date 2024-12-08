@@ -12,6 +12,8 @@
 
 	const human = document.querySelector('.human');
 	const moon = document.getElementById('moon');
+	const stack = document.getElementById('go-stack');
+	const btnToSlider = document.getElementById('go-slider');
 	const watchText = document.getElementsByClassName('watch-text');
 	const watchTextArray = Array.from(watchText);
 	let slider = document.querySelector('.slider');
@@ -21,6 +23,25 @@
 	let item = document.querySelectorAll('.item');
 	let currdeg  = 0;
 	let active = 0;
+
+	btnToSlider.addEventListener('click', () => {
+		const contentPage = document.querySelector('.content-page');
+		const startPage = document.getElementById('present-page-block');
+		
+		if (contentPage && startPage) {
+			slowScrollTo(contentPage, startPage);
+		}
+	});
+
+
+	stack.addEventListener('click', () => {
+		const contentPage = document.querySelector('.content-page');
+		const startPage = document.getElementById('stack-page-block');
+		
+		if (contentPage && startPage) {
+			slowScrollTo(contentPage, startPage);
+		}
+	});
 
 	moon.addEventListener('click', () => {
 		const contentPage = document.querySelector('.content-page');

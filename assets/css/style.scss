@@ -36,8 +36,19 @@ body {
   overflow-y: auto;
 }
 
+#stack-page-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
 #present-page-block {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -59,6 +70,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.block-stacks {
+  width: 100%;
+  height: 70%;
+  display: inline-block;
+  padding: 0rem 2rem;
+  margin-bottom: auto;
+}
+
+.block-card {
+  border: 1px #fff solid;
+  padding: 1rem;
+  width: 50%;
+  height: 100%;
+  background-color: #00000082;
+}
+
+.block-card-title {
+  text-align: center;
+  margin-top: 0;
+}
+
+#go-slider {
+  margin-bottom: auto;
 }
 
 @layer tokens {
@@ -617,8 +653,6 @@ body {
         #131617 60%,
         transparent 82%
       );
-      opacity: 0.5;
-      filter: blur(0.1rem);
       translate: calc(var(--x) * 100vw) calc(var(--y) * 100vh);
     }
 
@@ -1322,7 +1356,8 @@ a.labs-follow-me {
 
 
 .slider {
-	margin: 0 auto;
+  margin-top: auto;
+	margin: auto auto 0 auto;
 	width: 100% !important;
   height: 100% !important;
 	position: relative;
@@ -1383,6 +1418,10 @@ a.labs-follow-me {
   }
 }
 
+.btn-block-down {
+  margin-top: auto;
+}
+
 .wrapper-slider {
   height: 100%;
   width: 100%;
@@ -1393,6 +1432,25 @@ a.labs-follow-me {
   align-items: center;
   justify-content: center;
   will-change: transform;
+}
+
+.btn-neon {
+  padding:15px 25px;
+  font-size:18px;
+  margin:20px;
+  text-transform:uppercase;
+  background:transparent;
+  outline:none;
+  cursor:pointer;
+  border:2px solid transparent;
+  transition:300ms;
+  color: white;
+  border: 2px #bbb8b8 solid;
+
+  &:hover {
+    border: 2px solid;
+    box-shadow: 0 0 5px;
+  }
 }
 
 .btn {
@@ -1454,6 +1512,30 @@ a.labs-follow-me {
   transform: scale(0);
   white-space: nowrap;
   will-change: transform;
+}
+
+.btn-group {
+  display: grid;
+  margin-top: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.item__dev.show {
+  display: grid;
+  flex-wrap: wrap;
+  height: max-content;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+  margin-bottom: 0;
+}
+
+.item__dev.show span {
+  transform: scale(1) translateX(-50%) !important;
+  height: 76px;
+  width: 76px;
+  top: 0;
+  left: 50%;
+  color: white;
 }
 
 .item__name {
@@ -1704,4 +1786,152 @@ a.labs-follow-me {
 		background-position: 300% 0%;
     border: 0px solid #00000000;
 	}
+}
+
+.planets-second div {
+  display: inline-block;
+  position: absolute;
+  z-index: 5;
+  /*box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);*/
+}
+
+.ring {
+  transform: rotate(0);    
+  box-shadow: none;
+}
+
+.zero {
+  width: 76px;
+  height: 76px;
+  top: 50%;
+  bottom: 50%;
+
+  transform: translateX(-50%) translateY(-50%);
+}
+ 
+.one {
+  top: 125px;
+  right: -75px;
+}
+
+.two {
+  top: 25px;
+  right: -148px;
+  transform-origin: 26px 26px;
+}
+
+.three {
+  top: -110px;
+  right: -93px;
+  transform-origin: 15px 15px;  
+}
+
+.four {
+  top: -60px;
+  left: -150px;
+}
+
+.five {
+  top: 110px;
+  left: -110px;
+  transform-origin: 5px 5px; 
+}
+
+.six {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #7dfffd;
+  top: -50px;
+  left: -50px;
+  transform-origin: 10px 10px; 
+}
+
+.seven {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background: #fff;
+  top: -30px;
+  left: -30px;
+  transform-origin: 15px 15px; 
+}
+
+.slow > .ring {
+  width : 117px;
+  height: 117px;
+  border-radius: 80px;
+  top: -42px;
+  left: -42px;
+}
+
+.fast > .ring {
+  width : 152px;
+  height: 152px;
+  border-radius: 80px;
+  top: -62px;
+  left: -62px;
+}
+
+.space-system {
+  color: white;
+  position: relative;
+  width: 540px;
+  margin: 40px auto;
+  text-align: center;
+  height: 600px;
+}
+
+.sun-second {
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  top: 170px;
+  left: 240px;
+  display: inline-block;
+  position: absolute;
+  box-shadow: 0 0 120px #f5f0c8, 0 0 60px #e3e3e2, 0 0 10px #c98d4c, 0 0 200px #e5e5cb;
+}
+
+.sun-second  {
+  // animation: spin 100s infinite linear; 
+}  
+
+.one {
+  animation: spin 40s infinite linear; 
+}
+
+.two {
+  animation: spin 50s infinite linear; 
+}
+
+.three {
+  animation: spin 70s infinite linear; 
+}
+
+.four {
+  animation: spin 50s infinite linear; 
+}
+
+.five {
+  animation: spin 40s infinite linear; 
+}
+
+
+.slow {
+  animation: spin 10s infinite linear; 
+}
+
+.fast {
+  animation: spin 20s infinite linear; 
+}
+
+
+@keyframes spin {  
+from {  
+  transform: rotate(0deg);  
+}  
+to {  
+  transform: rotate(360deg);  
+   }  
 }
