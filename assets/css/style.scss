@@ -41,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   height: 100vh;
   width: 100%;
 }
@@ -93,10 +93,6 @@ body {
   margin-top: 0;
 }
 
-#go-slider {
-  margin-bottom: auto;
-}
-
 @layer tokens {
   :root {
     --color-primary: rgba(220, 219, 219, 0.78);
@@ -136,7 +132,7 @@ body {
 
 .block-click-watch h3 {
   margin: 0;
-  font-size: 26px;
+  font-size: 30px;
   color: #121415;
   text-transform: uppercase;
 }
@@ -195,7 +191,7 @@ body {
       translate: 1vmin -2vmin;
     }
     50% {
-      translate: -1vmin 2vmin;
+      translate: -1vmin 3vmin;
       rotate: 10deg;
     }
     to {
@@ -1772,6 +1768,37 @@ a.labs-follow-me {
   }
 }
 
+@media (max-aspect-ratio: 1/1) {
+  .stars {
+      width: 100vw;
+      height: 100vh;
+      
+      &::before {
+        animation: none !important;
+      }
+  }
+
+  .stars-highlights::before {
+    animation: none !important;
+  }
+
+  .moon {
+    width: 100vw !important;
+    height: 100vw !important;
+  }
+
+  h2.title-site {
+    font-size: 20px !important;
+  }
+
+  h3.title-site {
+    font-size: 16px !important;
+  }
+
+  .watch-text {
+    font-size: 16px !important;
+  }
+}
 
 @keyframes moonRotation {
     0% {
@@ -1880,6 +1907,8 @@ a.labs-follow-me {
   margin: 40px auto;
   text-align: center;
   height: 600px;
+  margin-bottom: auto;
+  margin-top: auto;
 }
 
 .sun-second {
@@ -1892,10 +1921,6 @@ a.labs-follow-me {
   position: absolute;
   box-shadow: 0 0 120px #f5f0c8, 0 0 60px #e3e3e2, 0 0 10px #c98d4c, 0 0 200px #e5e5cb;
 }
-
-.sun-second  {
-  // animation: spin 100s infinite linear; 
-}  
 
 .one {
   animation: spin 40s infinite linear; 
